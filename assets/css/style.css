@@ -1,0 +1,56 @@
+.header {
+	border-style: solid;
+	border-width: 1px;
+	margin: 10px;
+	padding: 10px;
+}
+
+.nav {
+	top: 10px;
+	left: 10px;
+}
+
+.nav-item {
+	display: inline;
+	margin-right: 10px;
+}
+
+.nav-item2 {
+  display: inline;
+  margin-right: 10px;
+}
+
+.logo2 {
+	position: static;
+	left: 10px;
+	top: 10px;
+	width: 30px;
+	height: 30px;
+}
+
+.imagem {
+	position: static;
+	left: 10px;
+	top: 10px;
+	height: 250px;
+	display: inline;
+  margin: 10px;
+}
+
+.imagem-menor {
+	position: static;
+	left: 10px;
+	top: 10px;
+	height: 100px;
+	display: inline;
+  margin: 10px;
+}
+
+.text {
+  margin: 10px;
+  position: center;
+}
+
+.title {
+  position: center;
+}
