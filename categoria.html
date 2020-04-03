@@ -1,45 +1,51 @@
 <!DOCTYPE html>
 <html lang = "pt-br">
 <head>
-  <title>Dados</title>
   <meta charset="utf-8"/>
   <link href = "./assets/css/reset.css" rel = "stylesheet">
   <link href = "./assets/css/style.css" rel = "stylesheet">
+  <script src = "./assets/js/codes.js"></script>
+  <script src = "./assets/js/categoria.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title class='nome-aba'>{{categoria}}</title>
 </head>
 
 <body class = "body">
-  <header class = "header"> 
-   <nav>
-    <ul class = "nav">
-     <li class = "nav-item"><img class="logo2" src="assets/img/logo.jpg" alt="logo"></li>
-     <li class = "nav-item"><a href="index.html">Home</a></li>
-     <li class = "nav-item" ><a href="categoria.html">Dados</a></li>
-     <li class = "nav-item" ><a href="categoria.html">Eletrônica</a></li>
-     <li class = "nav-item" ><a href="categoria.html">Matemática</a></li>
-     <li class = "nav-item" ><a href="categoria.html">Programação</a></li>
-     <li class = "nav-item" ><a href="categoria.html">Prototipagem</a></li>
-   </ul>
- </nav>
-</header>
-<main>
- <div class = "container2">
-  <ul>
-    <li class = "titulo-bloco">Dados</li>
-    <li class = "main-item">
-      <img class="imagem2" src="assets/img/dados.jpg" alt="Dados">
-    </li>
-  </ul>
-</div>
 
-<div class= "container2">
-  <ul>
-    <li class="main-item">Os projetos relacionados a Dados estão abaixo:</li>
-    <li class="main-item"> 
-      <a href="projeto.html"> Projeto Final de Big Data</a>
-    </li>
-  </ul>
-</div>
+<header class = "header">
+    <div class="teste">
+      <img class="nav-figure" src="assets/img/menu.jpg" alt="menu" >
+    </div>  
+    <ul class = "nav">
+      <li class = "nav-item"><a href="index.html">Home</a></li>
+      {{#each portfolio}}
+      <li class = "nav-item" ><a href="categoria.html?key={{@key}}">{{this.categoria}}</a></li>
+      {{/each}}
+    </ul>
+    
+  </header>
+
+  <main>
+   <div class = "container2">
+    <ul>
+      <li class = "titulo-bloco">{{categoria}}</li>
+      <li class = "main-item">
+        <img class="imagem2" src="assets/img/{{imagem}}" alt="{{categoria}}">
+      </li>
+    </ul>
+  </div>
+
+  <div class= "container2 testando">
+    <ul>
+      <li class='main-item'>Abaixo estão listados os projetos dessa categoria: </li>
+      {{#each projetos}}
+      <li class="main-item container">
+        <a class="projeto-link" href="projeto.html?key={{@key}}">{{this.titulo}}</a>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
 </main>
 
 

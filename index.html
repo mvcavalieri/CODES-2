@@ -1,32 +1,27 @@
 <!DOCTYPE html>
 <html lang = "pt-br">
-<head>
- <title>Portfólio</title>
- <meta charset = "utf-8">
- <link href = "./assets/css/reset.css" rel = "stylesheet">
- <link href = "./assets/css/style.css" rel = "stylesheet">
- <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
- <meta name="viewport" content="width=device-width,initial-scale=1">
 
+<head>
+  <title>Portfólio de Pafuncio Silva</title>
+  <meta charset = "utf-8">
+  <link href = "./assets/css/reset.css" rel = "stylesheet">
+  <link href = "./assets/css/style.css" rel = "stylesheet">
+  <script src = "./assets/js/codes.js"></script>
+  <script src = "./assets/js/index.js"></script>
+  <link href = "https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
+
 <body class = "body">
   <header class = "header">
-    
-    <img class="logo2" src="assets/img/logo.jpg" alt="logo"> 
-
     <div class="teste">
       <img class="nav-figure" src="assets/img/menu.jpg" alt="menu" >
-    </div>
-    
-   
-    
+    </div>  
     <ul class = "nav">
       <li class = "nav-item"><a href="index.html">Home</a></li>
-      <li class = "nav-item" ><a href="categoria.html">Dados</a></li>
-      <li class = "nav-item" ><a href="categoria.html">Eletrônica</a></li>
-      <li class = "nav-item" ><a href="categoria.html">Matemática</a></li>
-      <li class = "nav-item" ><a href="categoria.html">Programação</a></li>
-      <li class = "nav-item" ><a href="categoria.html">Prototipagem</a></li>
+      {{#each portfolio}}
+      <li class = "nav-item" ><a href="categoria.html?key={{@key}}">{{this.categoria}}</a></li>
+      {{/each}}
     </ul>
     
   </header>
@@ -34,33 +29,23 @@
   <h1 class="titulo">Portfólio de Projetos</h1>
 
   <div class="container">
-  <h2 class="titulo2">Aluno: Pafúncio Silva</h2>
+    <h2 class="titulo2">Aluno: Pafuncio Silva</h2>
   </div>
-  <p class="text">
-    Os projetos feitos ao longo da vida acadêmica do Pafúncio estão todos representados nessa página! Para acessá-los, escolha uma categoria:
+
+  <p>
+    <ul>
+      <li class="text">Os projetos feitos ao longo da vida acadêmica do Pafúncio estão todos representados nessa página!</li>
+      <li class="text">Para acessá-los, escolha uma categoria:</li>
+    </ul>
   </p>
 
   <ul class="categorias-pai">
+    {{#each portfolio}}
     <li class= "categorias">
-      <a href="categoria.html">Dados</a>
-      <img class="imagem" src="assets/img/dados.jpg" alt="Dados">
+      <a href="categoria.html?key={{@key}}">{{this.categoria}}</a>
+      <img class="imagem" src="assets/img/{{this.imagem}}" alt="{{this.categoria}}">
     </li>
-    <li class="categorias">
-      <a href="categoria.html">Eletrônica</a>
-      <img class="imagem" src="assets/img/eletronica.jpg" alt="Eletrônica">
-    </li>
-    <li class="categorias">
-      <a href="categoria.html">Matemática</a>
-      <img class="imagem" src="assets/img/matematica.jpg" alt="Matemática">
-    </li>
-    <li class="categorias">
-      <a href="categoria.html">Programação</a>
-      <img class="imagem" src="assets/img/programacao.jpg" alt="Programação">
-    </li>
-    <li class="categorias">
-      <a href="categoria.html">Prototipagem</a>
-      <img class="imagem" src="assets/img/prototipagem.jpg" alt="Prototipagem">
-    </li>
+    {{/each}}
   </ul>
 
 </body>

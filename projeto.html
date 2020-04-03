@@ -1,77 +1,70 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-	<title>Robozito</title>
 	<meta charset="utf-8"/>
 	<link href = "./assets/css/reset.css" rel = "stylesheet">
 	<link href = "./assets/css/style.css" rel = "stylesheet">
+  <script src = "./assets/js/codes.js"></script>
+  <script src = "./assets/js/projeto.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title class='nome-aba'>{{projeto}}</title>
 </head>
+
 <body class = "body">
-	<header class = "header"> 
-		<nav>
-			<ul class = "nav">
-				<li class = "nav-item"><img class="logo2" src="assets/img/logo.jpg" alt="logo"></li>
-       <li class = "nav-item"><a href="index.html">Home</a></li>
-       <li class = "nav-item" ><a href="categoria.html">Dados</a></li>
-       <li class = "nav-item" ><a href="categoria.html">Eletrônica</a></li>
-       <li class = "nav-item" ><a href="categoria.html">Matemática</a></li>
-       <li class = "nav-item" ><a href="categoria.html">Programação</a></li>
-       <li class = "nav-item" ><a href="categoria.html">Prototipagem</a></li>
+  <header class = "header">
+    <div class="teste">
+      <img class="nav-figure" src="assets/img/menu.jpg" alt="menu" >
+    </div>  
+    <ul class = "nav">
+      <li class = "nav-item"><a href="index.html">Home</a></li>
+      {{#each portfolio}}
+      <li class = "nav-item" ><a href="categoria.html?key={{@key}}">{{this.categoria}}</a></li>
+      {{/each}}
+    </ul>
+    
+  </header>
+
+  <main class="main">
+    <h1 class="titulo">Projeto</h1>
+    <h2 class="titulo2">{{titulo}}</h2>
+
+    <div class = "container2">
+     <img class="imagem2" src="assets/img/{{imagem}}" alt="{{imagem}}">
+   </div>
+
+   <div class= "container">
+     <h3 class= "titulo3">Descrição do projeto:</h3>
+     <ul>
+       <li class="text">{{descricao}}</li>	
      </ul>
-   </nav>
- </header>
+   </div>
 
- <main class="main">
- <h1 class="titulo">Projeto</h1>
+   <div class= "container grupo">
+     <h3 class = "titulo3">Grupo:</h3>
+     <ul>
+      {{#each grupo}}
+      <li class = "cat2">{{this}}</li>
+      {{/each}}
+    </ul>
+  </div>
 
- <h2 class="titulo2">Robozito</h2>
+  <div class="container local">
+    <h3 class = "titulo3">Local:</h3>
+    <ul>
+      <li class ="cat2">{{local}}</li>
+    </ul>
+  </div>
 
-<div class = "container2">
- <img class="imagem2" src="assets/img/robozito.jfif.jpeg" alt="Robozito">
-</div>
-
-<div class= "container">
- <h3 class= "titulo3">Descrição do projeto:</h3>
- <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-   tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-   quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-   consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-   cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
- proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>	
-</div>
-
-<div class= "container">
- <h3 class = "titulo3">Grupo:</h3>
- <ul>
-  <li class = "cat2">Pafuncio Silva</li>
-  <li class = "cat2">Antonio Giunta</li>	
-  <li class = "cat2">Giulia Moraes</li>	
-  <li class = "cat2">Rodrigo Vianna</li>
-</ul>
-</div>
-
-<div class="container">
-<h3 class = "titulo3">Local:</h3>
-<p class ="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-</div>
-
-<div class="container">
-<h3 class = "titulo3">Materiais:</h3>
-<ul>
-  <li class = "cat2">Madeira</li>
-  <li class = "cat2">Peças impressas na 3D</li>
-  <li class = "cat2">Motores</li>
-  <li class = "cat2">Arduino</li>
-</ul>
-</div>
-
-<h3 class = "titulo2">Título: Robozito</h3>
+  <div class="container">
+    <h3 class = "titulo3">Materiais:</h3>
+    <ul class='materiais'>
+      {{#each materiais}}
+      <li class = "cat2">{{this}}</li>
+      {{/each}}
+    </ul>
+  </div>
 </main>
+
 </body>
 </html>
